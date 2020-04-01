@@ -1,0 +1,28 @@
+{
+  "name": "graceful-error",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc ava --verbose --no-cache --timeout=1m",
+    "test:watch": "nyc ava --verbose --watch --no-cache --timeout=1m",
+    "report": "nyc report --reporter=html && open coverage/index.html",
+    "release": "sh release.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/node-labx/graceful-error.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/node-labx/graceful-error/issues"
+  },
+  "homepage": "https://github.com/node-labx/graceful-error#readme",
+  "devDependencies": {
+    "benchmark": "^2.1.4",
+    "ava": "^3.5.0",
+    "nyc": "^15.0.0"
+  }
+}
