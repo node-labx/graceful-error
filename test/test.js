@@ -14,16 +14,17 @@ test('createError', t => {
     {
       message: 'this is a message.',
       appId: 'test',
-      code: 'ERR_INVALID_PARAM',
+      code: 'ERR_HTTP_INVALID_HEADER_VALUE',
       level: ErrorLevelEnum.ERROR,
     },
     {
       foo: 'bar',
     }
   );
+  t.is(err.name, 'GracefulError');
   t.is(err.message, 'this is a message.');
   t.is(err.appId, 'test');
-  t.is(err.code, 'ERR_INVALID_PARAM');
+  t.is(err.code, 'ERR_HTTP_INVALID_HEADER_VALUE');
   t.is(err.level, 'error');
   t.deepEqual(err.context, {
     foo: 'bar',
@@ -35,7 +36,7 @@ test('createError#toJSON', t => {
     {
       message: 'this is a message.',
       appId: 'test',
-      code: 'ERR_INVALID_PARAM',
+      code: 'ERR_HTTP_INVALID_HEADER_VALUE',
       level: ErrorLevelEnum.ERROR,
     },
     {
@@ -44,6 +45,6 @@ test('createError#toJSON', t => {
   ).toJSON();
   t.is(err.message, 'this is a message.');
   t.is(err.appId, 'test');
-  t.is(err.code, 'ERR_INVALID_PARAM');
+  t.is(err.code, 'ERR_HTTP_INVALID_HEADER_VALUE');
   t.is(err.level, 'error');
 });

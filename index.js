@@ -1,6 +1,7 @@
 class GracefulError extends Error {
   constructor({ message, appId, code, level, context }) {
     super(message);
+    this.name = 'GracefulError';
     this.appId = appId;
     this.code = code;
     this.level = level;
