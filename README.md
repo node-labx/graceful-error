@@ -18,6 +18,7 @@
 ```js
 const { createError, ErrorLevelEnum } = require('graceful-error');
 
+// 1.createError
 const err = createError(
   {
     message: 'Invalid HTTP header value.',
@@ -30,5 +31,6 @@ const err = createError(
   }
 );
 
+// 2.toJSON
 const errJSON = err.toJSON();
 ```
