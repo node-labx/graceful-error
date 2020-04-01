@@ -29,4 +29,6 @@ const err = createError(
     foo: 'bar',
   }
 );
+
+const errJSON = err.toJSON();
 ```
