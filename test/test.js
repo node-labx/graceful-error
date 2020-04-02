@@ -6,6 +6,8 @@ test('ErrorLevelEnum', t => {
     INFO: 'info',
     WARN: 'warn',
     ERROR: 'error',
+    ALERT: 'alert',
+    CRITICAL: 'critical',
   });
 });
 
