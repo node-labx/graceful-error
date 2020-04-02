@@ -41,5 +41,5 @@ function createError({ message, appId, code, level, feature }, context) {
 
 module.exports = {
   createError,
-  ErrorLevelEnum,
+  ErrorLevelEnum: Object.freeze(ErrorLevelEnum),
 };
