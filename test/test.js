@@ -1,7 +1,7 @@
 const test = require('ava');
 const { createError, ErrorLevelEnum } = require('../index');
 
-test('ErrorLevelEnum', t => {
+test('ErrorLevelEnum', (t) => {
   t.deepEqual(ErrorLevelEnum, {
     INFO: 'info',
     WARN: 'warn',
@@ -11,7 +11,7 @@ test('ErrorLevelEnum', t => {
   });
 });
 
-test('createError', t => {
+test('createError', (t) => {
   const err = createError(
     {
       message: 'this is a message.',
@@ -33,7 +33,7 @@ test('createError', t => {
   });
 });
 
-test('createError#toJSON', t => {
+test('createError#toJSON', (t) => {
   const err = createError(
     {
       message: 'this is a message.',

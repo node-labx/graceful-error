@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "description": "",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "nyc ava --verbose --no-cache --timeout=1m",
     "test:watch": "nyc ava --verbose --watch --no-cache --timeout=1m",
