@@ -1,8 +1,9 @@
 class GracefulError extends Error {
-  constructor({ message, appId, code, level, feature, context }) {
+  constructor({ message, appId, logIndex, code, level, feature, context }) {
     super(message);
     this.name = 'GracefulError';
     this.appId = appId;
+    this.logIndex = logIndex;
     this.code = code;
     this.level = level;
     this.feature = feature;
@@ -18,6 +19,7 @@ class GracefulError extends Error {
 
       // custom
       appId: this.appId,
+      logIndex: this.logIndex,
       code: this.code,
       level: this.level,
       feature: this.feature,
@@ -34,8 +36,8 @@ const ErrorLevelEnum = {
   CRITICAL: 'critical',
 };
 
-function createError({ message, appId, code, level, feature }, context) {
-  let err = new GracefulError({ message, appId, code, level, feature, context });
+function createError({ message, appId, logIndex, code, level, feature }, context) {
+  let err = new GracefulError({ message, appId, logIndex, code, level, feature, context });
   return err;
 }
 
