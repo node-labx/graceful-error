@@ -37,4 +37,13 @@ const err = createError(
 
 // 2.toJSON
 const errJSON = err.toJSON();
+
+// 3.ErrorLevelEnum 可选值
+const ErrorLevelEnum = {
+  INFO: 'info',
+  WARN: 'warn',
+  ERROR: 'error',
+  ALERT: 'alert',
+  CRITICAL: 'critical',
+};
 ```
