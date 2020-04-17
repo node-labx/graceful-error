@@ -16,6 +16,7 @@ test('createError', (t) => {
     {
       message: 'this is a message.',
       appId: 'test',
+      logIndex: 'testIndex',
       code: 'ERR_HTTP_INVALID_HEADER_VALUE',
       level: ErrorLevelEnum.ERROR,
     },
@@ -26,6 +27,7 @@ test('createError', (t) => {
   t.is(err.name, 'GracefulError');
   t.is(err.message, 'this is a message.');
   t.is(err.appId, 'test');
+  t.is(err.logIndex, 'testIndex');
   t.is(err.code, 'ERR_HTTP_INVALID_HEADER_VALUE');
   t.is(err.level, 'error');
   t.deepEqual(err.context, {
@@ -38,6 +40,7 @@ test('createError#toJSON', (t) => {
     {
       message: 'this is a message.',
       appId: 'test',
+      logIndex: 'testIndex',
       code: 'ERR_HTTP_INVALID_HEADER_VALUE',
       level: ErrorLevelEnum.ERROR,
     },
@@ -47,6 +50,7 @@ test('createError#toJSON', (t) => {
   ).toJSON();
   t.is(err.message, 'this is a message.');
   t.is(err.appId, 'test');
+  t.is(err.logIndex, 'testIndex');
   t.is(err.code, 'ERR_HTTP_INVALID_HEADER_VALUE');
   t.is(err.level, 'error');
 });
