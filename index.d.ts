@@ -1,6 +1,7 @@
 interface IBaseOptions {
   message: string;
   appId: string;
+  logIndex: string;
   code: string;
   level: string;
   feature: string;
@@ -23,10 +24,12 @@ declare class GracefulError {
 }
 
 export function createError(options: IBaseOptions, context: object): GracefulError;
+export function wrapError(err: any, options: IBaseOptions, context: object): GracefulError;
 export enum ErrorLevelEnum {
   INFO,
+  NOTICE,
+  ALERT,
   WARN,
   ERROR,
-  ALERT,
   CRITICAL,
 }
