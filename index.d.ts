@@ -1,10 +1,10 @@
 interface IBaseOptions {
-  message: string;
-  appId: string;
-  logIndex: string;
   code: string | number;
-  level: string;
-  feature: string;
+  message: string;
+  appId?: string;
+  logIndex?: string;
+  level?: string;
+  feature?: string;
 }
 
 interface IGracefulErrorOptions extends IBaseOptions {
