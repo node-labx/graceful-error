@@ -1,20 +1,25 @@
-interface IBaseOptions {
-  code: string | number;
+interface IOptions {
   message: string;
+  code: string | number;
+  msg: string;
   appId?: string;
   logIndex?: string;
   level?: string;
+  errorType?: string;
   feature?: string;
 }
 
-interface IGracefulErrorOptions extends IBaseOptions {
-  context: object;
+interface IContext {
+  [key: string]: any;
+}
+interface IGracefulErrorOptions extends IOptions {
+  context: IContext;
 }
 
-interface IGracefulErrorToJSONResult extends IBaseOptions {
+interface IGracefulErrorToJSONResult extends IOptions {
   name: string;
   stack: string;
-  context: object;
+  context: IContext;
 }
 
 declare class GracefulError {
@@ -23,8 +28,8 @@ declare class GracefulError {
   toJSON(): IGracefulErrorToJSONResult;
 }
 
-export function createError(options: IBaseOptions, context?: object): GracefulError;
-export function wrapError(err: any, options?: IBaseOptions, context?: object): GracefulError;
+export function createError(options: IOptions, context?: IContext): GracefulError;
+export function wrapError(err: any, options?: IOptions, context?: IContext): GracefulError;
 export enum ErrorLevelEnum {
   INFO,
   NOTICE,
