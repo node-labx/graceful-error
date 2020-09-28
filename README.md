@@ -2,7 +2,7 @@
 
 ### 一、基础介绍
 
-GracefulError 在 Node 原生错误对象 Error 的基础之上，新增了 6 个属性，如下所示。
+GracefulError 在 Node 原生错误对象 Error 的基础之上，新增了 7 个属性，如下所示。
 
 #### Node 原生错误对象自有属性
 
@@ -15,9 +15,19 @@ GracefulError 在 Node 原生错误对象 Error 的基础之上，新增了 6 �
 - appId 应用唯一标识
 - logIndex 日志索引
 - code 错误码
+- msg 错误提示信息
 - level 错误级别，例如：info、warn、error
 - feature 业务标识
 - context 错误上下文对象，适用于存储一些错误上下文信息
+
+> 注意：code 和 msg 一般返回给前端使用，其他字段用于日志打印，记录错误发生时的一些信息，如下所示。
+
+```json
+{
+  "code": "NETWORK_ERROR",
+  "msg": "网络错误，请稍后重试"
+}
+```
 
 ### 二、API
 
@@ -52,6 +62,7 @@ ErrorLevelEnum.ERROR; // 'error'
   - options.appId 应用唯一标识
   - options.logIndex 日志索引
   - options.code 错误码
+  - options.msg 错误提示信息
   - options.level 错误级别，例如：info、warn、error
   - options.feature 业务标识
 - context 错误上下文对象，适用于存储一些错误上下文信息
@@ -66,6 +77,7 @@ const err = createError(
     appId: 'demo',
     logIndex: 'demo_log_index',
     code: 'ERR_HTTP_INVALID_HEADER_VALUE',
+    msg: 'HTTP 请求头非法',
     level: ErrorLevelEnum.ERROR,
     feature: 'demo_feature',
   },

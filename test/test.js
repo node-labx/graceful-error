@@ -19,6 +19,7 @@ test('createError', (t) => {
       appId: 'test',
       logIndex: 'testIndex',
       code: 'ERR_HTTP_INVALID_HEADER_VALUE',
+      msg: '请求头错误',
       level: ErrorLevelEnum.ERROR,
     },
     {
@@ -30,6 +31,7 @@ test('createError', (t) => {
   t.is(err.appId, 'test');
   t.is(err.logIndex, 'testIndex');
   t.is(err.code, 'ERR_HTTP_INVALID_HEADER_VALUE');
+  t.is(err.msg, '请求头错误');
   t.is(err.level, 'error');
   t.deepEqual(err.context, {
     foo: 'bar',
@@ -43,6 +45,7 @@ test('createError#toJSON', (t) => {
       appId: 'test',
       logIndex: 'testIndex',
       code: 'ERR_HTTP_INVALID_HEADER_VALUE',
+      msg: '请求头错误',
       level: ErrorLevelEnum.ERROR,
     },
     {
@@ -53,6 +56,7 @@ test('createError#toJSON', (t) => {
   t.is(err.appId, 'test');
   t.is(err.logIndex, 'testIndex');
   t.is(err.code, 'ERR_HTTP_INVALID_HEADER_VALUE');
+  t.is(err.msg, '请求头错误');
   t.is(err.level, 'error');
 });
 
@@ -65,6 +69,7 @@ test('wrapError', (t) => {
       appId: 'test',
       logIndex: 'testIndex',
       code: 'ERR_HTTP_INVALID_HEADER_VALUE',
+      msg: '请求头错误',
       level: ErrorLevelEnum.ERROR,
     },
     {
@@ -75,6 +80,7 @@ test('wrapError', (t) => {
   t.is(err.appId, 'test');
   t.is(err.logIndex, 'testIndex');
   t.is(err.code, 'ERR_HTTP_INVALID_HEADER_VALUE');
+  t.is(err.msg, '请求头错误');
   t.is(err.level, 'error');
   t.deepEqual(err.context, {
     foo: 'bar',
