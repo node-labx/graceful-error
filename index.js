@@ -1,10 +1,11 @@
 class GracefulError extends Error {
-  constructor({ message, appId, logIndex, code, level, feature, context }) {
+  constructor({ message, appId, logIndex, code, msg, level, feature, context }) {
     super(message);
     this.name = 'GracefulError';
     this.appId = appId;
     this.logIndex = logIndex;
     this.code = code;
+    this.msg = msg;
     this.level = level;
     this.feature = feature;
     this.context = context;
@@ -21,6 +22,7 @@ class GracefulError extends Error {
       appId: this.appId,
       logIndex: this.logIndex,
       code: this.code,
+      msg: this.msg,
       level: this.level,
       feature: this.feature,
       context: this.context,
@@ -37,8 +39,8 @@ const ErrorLevelEnum = {
   CRITICAL: 'critical',
 };
 
-function createError({ message, appId, logIndex, code, level, feature }, context = {}) {
-  let err = new GracefulError({ message, appId, logIndex, code, level, feature, context });
+function createError({ message, appId, logIndex, code, msg, level, feature }, context = {}) {
+  let err = new GracefulError({ message, appId, logIndex, code, msg, level, feature, context });
   return err;
 }
 
@@ -51,6 +53,7 @@ function wrapError(err, options = {}, context = {}) {
     appId: (options && options.appId) || err.appId,
     logIndex: (options && options.logIndex) || err.logIndex,
     code: (options && options.code) || err.code,
+    msg: (options && options.msg) || err.msg,
     level: (options && options.level) || err.level,
     feature: (options && options.feature) || err.feature,
     context,
